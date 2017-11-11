@@ -115,6 +115,35 @@ curl -XDELETE 'localhost:9200/content?pretty'
             }
           </code></pre>
         </section>
+        <section>
+          <h3>Analyzers</h3>
+          <img src="img/analyzer-pipeline.svg" />
+        </section>
+        <section>
+          <img src="img/analyzer-pipeline.svg" />
+          <h3>Character Filters</h3>
+          A character filter receives the original text as a stream of characters and can transform the stream by adding, removing, or changing characters.
+        </section>
+        <section>
+          <h3>HTML Strip Character Filter</h3>
+          <pre><code data-trim class="html">
+            <p>Hello!</p> <p>My name is <strong>John</strong>.</p>
+          </code></pre>
+          <img src="img/arrow.png" width="100" style="background: none; border: none; box-shadow: none;" />
+          <pre><code data-trim class="html">
+            Hello! My name is John.
+          </code></pre>
+        </section>
+        <section>
+          <h3>Pattern Replace Character Filter</h3>
+          <pre><code data-trim class="html">
+            My email address is leniec.piotr@gmail.com
+          </code></pre>
+          <img src="img/arrow.png" width="100" style="background: none; border: none; box-shadow: none;" />
+          <pre><code data-trim class="html">
+            My Email address is [email hidden]
+          </code></pre>
+        </section>
       </div>
     </div>
 
