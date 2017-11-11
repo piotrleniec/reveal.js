@@ -99,25 +99,25 @@
         </section>
         <section>
           <pre><code data-trim class="bash">
-curl -XPUT 'localhost:9200/content' -H 'Content-Type: application/json' -d'
-{
-  "mappings" : {
-    "article": {
-      "title": { "type": "text" },
-      "content": { "type": "text" },
-      "number_of_comments": { "type": "integer" }
-    },
-    "comment": {
-      "username": { "type": "keyword" },
-      "content": { "type": "text" }
-    }
-}
-'
+            curl -XPUT 'localhost:9200/content' -H 'Content-Type: application/json' -d'
+            {
+              "mappings" : {
+                "article": {
+                  "title": { "type": "text" },
+                  "content": { "type": "text" },
+                  "number_of_comments": { "type": "integer" }
+                },
+                "comment": {
+                  "username": { "type": "keyword" },
+                  "content": { "type": "text" }
+                }
+            }
+            '
           </code></pre>
         </section>
         <section>
           <pre><code data-trim class="bash">
-curl -XDELETE 'localhost:9200/content'
+            curl -XDELETE 'localhost:9200/content'
           </code></pre>
         </section>
         <section>
