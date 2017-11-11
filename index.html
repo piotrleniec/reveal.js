@@ -229,6 +229,49 @@
           </code></pre>
         </section>
         <section>
+          <h3>Query DSL</h3>
+        </section>
+        <section>
+          <pre><code data-trim class="bash">
+            curl -XGET 'localhost:9200/articles/_search?' -H 'Content-Type: application/json' -d'
+            {
+              "query": {
+                "bool": {
+                  "must": [
+                    { "match": { "title": "Search" }},
+                    { "match": { "content": "Elasticsearch" }}
+                  ],
+                  "filter": [
+                    { "term":  { "status": "published" }},
+                    { "range": { "publish_date": { "gte": "2015-01-01" }}}
+                  ]
+                }
+              }
+            }
+            '
+          </code></pre>
+        </section>
+        <section>
+          <h3>Query context</h3>
+          How well does this document match this query clause?
+          <pre><code data-trim>
+            "must": [
+              { "match": { "title": "Search" }},
+              { "match": { "content": "Elasticsearch" }}
+            ],
+          </code></pre>
+        </section>
+        <section>
+          <h3>Filter context</h3>
+          Does this document match this query clause?
+          <pre><code data-trim>
+            "filter": [
+              { "term": { "status": "published" }},
+              { "range": { "publish_date": { "gte": "2015-01-01" }}}
+            ]
+          </code></pre>
+        </section>
+        <section>
           <h3>Gems</h3>
         </section>
         <section>
