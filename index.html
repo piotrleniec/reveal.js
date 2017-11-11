@@ -67,6 +67,35 @@
             <li>Open Source</li>
           </ul>
         </section>
+        <section>
+          <h3>Analogy with relational databases</h3>
+        </section>
+        <section>
+          <h3>Index &lt;=&gt; STI Table </h3>
+        </section>
+        <section>
+          <pre><code data-trim class="bash">
+curl -XPUT 'localhost:9200/content?pretty' -H 'Content-Type: application/json' -d'
+{
+  "mappings" : {
+    "article": {
+      "title": { "type": "text" },
+      "content": { "type": "text" },
+      "number_of_comments": { "type": "integer" }
+    },
+    "comment": {
+      "username": { "type": "keyword" },
+      "content": { "type": "text" }
+    }
+}
+'
+          </code></pre>
+        </section>
+        <section>
+          <pre><code data-trim class="bash">
+curl -XDELETE 'localhost:9200/content?pretty'
+          </code></pre>
+        </section>
       </div>
     </div>
 
