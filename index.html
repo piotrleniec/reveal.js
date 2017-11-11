@@ -72,7 +72,7 @@
         </section>
         <section>
           <pre><code data-trim>
-            curl -XPUT 'localhost:9200/talks/talk/1?pretty' -H 'Content-Type: application/json' -d'
+            curl -XPUT 'localhost:9200/talks/talk/1' -H 'Content-Type: application/json' -d'
             {
               "title" : "Practical Introduction to Elasticsearch",
               "body": "Bla bla bla...",
@@ -83,12 +83,12 @@
         </section>
         <section>
           <pre><code data-trim>
-            curl -XGET 'localhost:9200/talks/talk/1?pretty'
+            curl -XGET 'localhost:9200/talks/talk/1'
           </code></pre>
         </section>
         <section>
           <pre><code data-trim>
-            curl -XDELETE 'localhost:9200/talks/talk/1?pretty'
+            curl -XDELETE 'localhost:9200/talks/talk/1'
           </code></pre>
         </section>
         <section>
@@ -99,7 +99,7 @@
         </section>
         <section>
           <pre><code data-trim class="bash">
-curl -XPUT 'localhost:9200/content?pretty' -H 'Content-Type: application/json' -d'
+curl -XPUT 'localhost:9200/content' -H 'Content-Type: application/json' -d'
 {
   "mappings" : {
     "article": {
@@ -117,7 +117,7 @@ curl -XPUT 'localhost:9200/content?pretty' -H 'Content-Type: application/json' -
         </section>
         <section>
           <pre><code data-trim class="bash">
-curl -XDELETE 'localhost:9200/content?pretty'
+curl -XDELETE 'localhost:9200/content'
           </code></pre>
         </section>
         <section>
