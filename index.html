@@ -144,6 +144,66 @@ curl -XDELETE 'localhost:9200/content?pretty'
             My Email address is [email hidden]
           </code></pre>
         </section>
+        <section>
+          <img src="img/analyzer-pipeline.svg" />
+          <h3>Tokenizers</h3>
+          A tokenizer receives a stream of characters, breaks it up into individual tokens (usually individual words), and outputs a stream of tokens.
+        </section>
+        <section>
+          <h3>Whitespace Tokenizer</h3>
+          <pre><code data-trim class="html">
+            The 2 QUICK Brown-Foxes jumped over the dog's bone.
+          </code></pre>
+          <img src="img/arrow.png" width="100" style="background: none; border: none; box-shadow: none;" />
+          <pre><code data-trim class="html">
+            [ The, 2, QUICK, Brown-Foxes, jumped, over, the, dog's, bone. ]
+          </code></pre>
+        </section>
+        <section>
+          <h3>Letter Tokenizer</h3>
+          <pre><code data-trim class="html">
+            The 2 QUICK Brown-Foxes jumped over the dog's bone.
+          </code></pre>
+          <img src="img/arrow.png" width="100" style="background: none; border: none; box-shadow: none;" />
+          <pre><code data-trim class="html">
+            [ The, QUICK, Brown, Foxes, jumped, over, the, dog, s, bone ]
+          </code></pre>
+        </section>
+        <section>
+          <h3>Edge N-Gram Tokenizer</h3>
+          <pre><code data-trim class="html">
+            2 Quick Foxes.
+          </code></pre>
+          <img src="img/arrow.png" width="100" style="background: none; border: none; box-shadow: none;" />
+          <pre><code data-trim class="html">
+            [ Qu, Qui, Quic, Quick, Fo, Fox, Foxe, Foxes ]
+          </code></pre>
+        </section>
+        <section>
+          <img src="img/analyzer-pipeline.svg" />
+          <h3>Token Filters</h3>
+          Token filters accept a stream of tokens from a tokenizer and can modify tokens (eg lowercasing), delete tokens (eg remove stopwords) or add tokens (eg synonyms).
+        </section>
+        <section>
+          <h3>Length Token Filter</h3>
+          <pre><code data-trim class="html">
+            [ The, QUICK, Brown, Foxes, jumped, over, the, dog, s, bone ]
+          </code></pre>
+          <img src="img/arrow.png" width="100" style="background: none; border: none; box-shadow: none;" />
+          <pre><code data-trim class="html">
+            [ QUICK, Brown, Foxes, jumped, over, bone ]
+          </code></pre>
+        </section>
+        <section>
+          <h3>Lowercase Token Filter</h3>
+          <pre><code data-trim class="html">
+            [ The, QUICK, Brown, Foxes, jumped, over, the, dog, s, bone ]
+          </code></pre>
+          <img src="img/arrow.png" width="100" style="background: none; border: none; box-shadow: none;" />
+          <pre><code data-trim class="html">
+            [ the, quick, brown, foxes, jumped, over, the, dog, s, bone ]
+          </code></pre>
+        </section>
       </div>
     </div>
 
