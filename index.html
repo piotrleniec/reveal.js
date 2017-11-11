@@ -96,6 +96,25 @@ curl -XPUT 'localhost:9200/content?pretty' -H 'Content-Type: application/json' -
 curl -XDELETE 'localhost:9200/content?pretty'
           </code></pre>
         </section>
+        <section>
+          <h3>Type &lt;=&gt; STI Type</h3>
+        </section>
+        <section>
+          <pre><code data-trim>
+            "news": {
+              "properties": {
+                "title": { "type": "text" },
+                "body": { "type": "text" },
+                "created_at": {
+                  "type": "date",
+                  "format": "yyyy-MM-dd"
+                }
+                "number_of_comments": { "type": "integer" },
+                "tags": { "type": "keyword" }
+              }
+            }
+          </code></pre>
+        </section>
       </div>
     </div>
 
