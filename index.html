@@ -218,6 +218,13 @@
 
         <section>
           <h3>CRUD</h3>
+
+          <aside class="notes">
+            <ul>
+              <li>As we learned how to manage indexes let's go on to CRUD</li>
+              <li>It's a very simple interface for someone who knows REST</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -230,12 +237,26 @@
             }
             '
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>It's UPSERT action or update or create</li>
+              <li>It's idempotent - subsequent operations make nothing</li>
+              <li>It's possible to modify only a couple of fields like in rails but it's complicated</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
           <pre><code data-trim>
             curl -XGET 'localhost:9200/talks/talk/1'
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>Rarely used but it's useful for debuggin</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -247,6 +268,12 @@
         <section>
           <h3>Analyzers</h3>
           Analysis is the process of converting text, like the body of any email, into tokens or terms which are added to the inverted index for searching.
+
+          <aside class="notes">
+            <ul>
+              <li>Crutial for understanding text search</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -362,6 +389,12 @@
             }
             '
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>Very nice tool for debugging and studying analyzers</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
