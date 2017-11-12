@@ -24,6 +24,7 @@
   <body>
     <div class="reveal">
       <div class="slides">
+
         <section>
           <img src="img/me.jpg" width="400" style="float: left" />
           <h3>Piotr Leniec</h3>
@@ -39,15 +40,18 @@
             </li>
           </ul>
         </section>
+
         <section>
           <div>
             <img src="img/ss-logo.png" style="background-color: white; border: none" width="300" />
           </div>
           Team Leader at Spark Solutions
         </section>
+
         <section>
           <img src="img/elasticsearch-logo.svg" style="background-color: white; border: none" />
         </section>
+
         <section>
           <h3>Background</h3>
           <ul>
@@ -57,6 +61,7 @@
             <li>The company raised $70 million in 2014</li>
           </ul>
         </section>
+
         <section>
           <h3>What is Elasticsearch</h3>
           <ul>
@@ -67,12 +72,15 @@
             <li>Open Source</li>
           </ul>
         </section>
+
         <section>
           <h3>Analogy with relational databases</h3>
         </section>
+
         <section>
           <h3>Index &lt;=&gt; STI Table </h3>
         </section>
+
         <section>
           <pre><code data-trim class="bash">
             curl -XPUT 'localhost:9200/content' -H 'Content-Type: application/json' -d'
@@ -91,14 +99,17 @@
             '
           </code></pre>
         </section>
+
         <section>
           <pre><code data-trim class="bash">
             curl -XDELETE 'localhost:9200/content'
           </code></pre>
         </section>
+
         <section>
           <h3>Type &lt;=&gt; STI Type</h3>
         </section>
+
         <section>
           <pre><code data-trim>
             "news": {
@@ -115,9 +126,11 @@
             }
           </code></pre>
         </section>
+
         <section>
           <h3>CRUD</h3>
         </section>
+
         <section>
           <pre><code data-trim>
             curl -XPUT 'localhost:9200/talks/talk/1' -H 'Content-Type: application/json' -d'
@@ -129,32 +142,39 @@
             '
           </code></pre>
         </section>
+
         <section>
           <pre><code data-trim>
             curl -XGET 'localhost:9200/talks/talk/1'
           </code></pre>
         </section>
+
         <section>
           <pre><code data-trim>
             curl -XDELETE 'localhost:9200/talks/talk/1'
           </code></pre>
         </section>
+
         <section>
           <h3>Analyzers</h3>
           Analysis is the process of converting text, like the body of any email, into tokens or terms which are added to the inverted index for searching.
         </section>
+
         <section>
           <h3>Inverted Index</h3>
           <img src="img/inverted-index.svg" style="background-color: white;" />
         </section>
+
         <section>
           <img src="img/analyzer-pipeline.svg" />
         </section>
+
         <section>
           <img src="img/analyzer-pipeline.svg" />
           <h3>Character Filters</h3>
           A character filter receives the original text as a stream of characters and can transform the stream by adding, removing, or changing characters.
         </section>
+
         <section>
           <h3>HTML Strip Character Filter</h3>
           <pre><code data-trim class="html">
@@ -165,6 +185,7 @@
             Hello! My name is John.
           </code></pre>
         </section>
+
         <section>
           <h3>Pattern Replace Character Filter</h3>
           <pre><code data-trim class="html">
@@ -175,11 +196,13 @@
             My Email address is [email hidden]
           </code></pre>
         </section>
+
         <section>
           <img src="img/analyzer-pipeline.svg" />
           <h3>Tokenizers</h3>
           A tokenizer receives a stream of characters, breaks it up into individual tokens (usually individual words), and outputs a stream of tokens.
         </section>
+
         <section>
           <h3>Whitespace Tokenizer</h3>
           <pre><code data-trim class="html">
@@ -190,6 +213,7 @@
             [ The, 2, QUICK, Brown-Foxes, jumped, over, the, dog's, bone. ]
           </code></pre>
         </section>
+
         <section>
           <h3>Letter Tokenizer</h3>
           <pre><code data-trim class="html">
@@ -200,6 +224,7 @@
             [ The, QUICK, Brown, Foxes, jumped, over, the, dog, s, bone ]
           </code></pre>
         </section>
+
         <section>
           <h3>Edge N-Gram Tokenizer</h3>
           <pre><code data-trim class="html">
@@ -210,11 +235,13 @@
             [ Qu, Qui, Quic, Quick, Fo, Fox, Foxe, Foxes ]
           </code></pre>
         </section>
+
         <section>
           <img src="img/analyzer-pipeline.svg" />
           <h3>Token Filters</h3>
           Token filters accept a stream of tokens from a tokenizer and can modify tokens (eg lowercasing), delete tokens (eg remove stopwords) or add tokens (eg synonyms).
         </section>
+
         <section>
           <h3>Length Token Filter</h3>
           <pre><code data-trim class="html">
@@ -225,6 +252,7 @@
             [ QUICK, Brown, Foxes, jumped, over, bone ]
           </code></pre>
         </section>
+
         <section>
           <h3>Lowercase Token Filter</h3>
           <pre><code data-trim class="html">
@@ -235,6 +263,7 @@
             [ the, quick, brown, foxes, jumped, over, the, dog, s, bone ]
           </code></pre>
         </section>
+
         <section>
           <pre><code data-trim class="bash">
             curl -XGET 'localhost:9200/_analyze' -H 'Content-Type: application/json' -d'
@@ -245,6 +274,7 @@
             '
           </code></pre>
         </section>
+
         <section>
           <pre><code data-trim class="bash">
             curl -XGET 'localhost:9200/_analyze' -H 'Content-Type: application/json' -d'
@@ -257,9 +287,11 @@
             '
           </code></pre>
         </section>
+
         <section>
           <h3>Query DSL</h3>
         </section>
+
         <section>
           <pre><code data-trim class="bash">
             curl -XGET 'localhost:9200/articles/_search?' -H 'Content-Type: application/json' -d'
@@ -280,6 +312,7 @@
             '
           </code></pre>
         </section>
+
         <section>
           <h3>Query context</h3>
           How well does this document match this query clause?
@@ -290,6 +323,7 @@
             ],
           </code></pre>
         </section>
+
         <section>
           <h3>Filter context</h3>
           Does this document match this query clause?
@@ -300,9 +334,11 @@
             ]
           </code></pre>
         </section>
+
         <section>
           <h3>Gems</h3>
         </section>
+
         <section>
           <h3>elasticsearch-rails</h3>
           <ul>
@@ -310,12 +346,14 @@
             <li>Maintained by Elastic</li>
           </ul>
         </section>
+
         <section>
           <h3>searchkick</h3>
           <ul>
             <li>3,954 stars on GitHub</li>
           </ul>
         </section>
+
         <section>
           <h3>chewy</h3>
           <ul>
@@ -324,6 +362,7 @@
             <li>Separates rails models from elasticsearch index</li>
           </ul>
         </section>
+
       </div>
     </div>
 
