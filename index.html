@@ -121,10 +121,28 @@
 
         <section>
           <h3>Analogy with relational databases</h3>
+
+          <aside class="notes">
+            <ul>
+              <li>I know that comparing nosql and sql is a bad thing</li>
+              <li>Elasticsearch is no sql</li>
+              <li>STI representing multiple types with one database table</li>
+              <li>STI might help to understand indexes and types</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
           <h3>Index &lt;=&gt; STI Table </h3>
+
+          <aside class="notes">
+            <ul>
+              <li>Why not a database?</li>
+              <li>We want to make queries on the index level (many types)</li>
+              <li>Fields across types in an index must have the same type</li>
+              <li>There are cases when this comparison doesn't make sense but let's skip it for now</li>
+              <li>Mention logs index</li>
+          </aside>
         </section>
 
         <section>
@@ -144,6 +162,15 @@
             }
             '
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>Explain path</li>
+              <li>Two types</li>
+              <li>Types definitions will be explained later</li>
+              <li>There are a lot more options but I don't want to explain it right now, let's keep it simple for now</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -154,6 +181,13 @@
 
         <section>
           <h3>Type &lt;=&gt; STI Type</h3>
+
+          <aside class="notes">
+            <ul>
+              <li>Can have additional fields</li>
+              <li>Common fields must have the same type</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -171,6 +205,15 @@
               }
             }
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>Show different types</li>
+              <li>created_at format</li>
+              <li>There are more options like analyzers but let's keep it simple</li>
+              <li>Say that we have finished the first step</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
