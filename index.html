@@ -229,6 +229,28 @@
           </code></pre>
         </section>
         <section>
+          <pre><code data-trim class="bash">
+            curl -XGET 'localhost:9200/_analyze' -H 'Content-Type: application/json' -d'
+            {
+              "analyzer": "standard",
+              "text": "this is a test"
+            }
+            '
+          </code></pre>
+        </section>
+        <section>
+          <pre><code data-trim class="bash">
+            curl -XGET 'localhost:9200/_analyze' -H 'Content-Type: application/json' -d'
+            {
+              "char_filter": ["html_strip"],
+              "tokenizer": "keyword",
+              "filter": ["lowercase"],
+              "text": "this is a <b>test</b>"
+            }
+            '
+          </code></pre>
+        </section>
+        <section>
           <h3>Inverted Index</h3>
           <img src="img/inverted-index.svg" style="background-color: white;" />
         </section>
