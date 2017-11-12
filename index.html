@@ -68,30 +68,6 @@
           </ul>
         </section>
         <section>
-          <h3>REST interface</h3>
-        </section>
-        <section>
-          <pre><code data-trim>
-            curl -XPUT 'localhost:9200/talks/talk/1' -H 'Content-Type: application/json' -d'
-            {
-              "title" : "Practical Introduction to Elasticsearch",
-              "body": "Bla bla bla...",
-              "author": "Piotr Leniec"
-            }
-            '
-          </code></pre>
-        </section>
-        <section>
-          <pre><code data-trim>
-            curl -XGET 'localhost:9200/talks/talk/1'
-          </code></pre>
-        </section>
-        <section>
-          <pre><code data-trim>
-            curl -XDELETE 'localhost:9200/talks/talk/1'
-          </code></pre>
-        </section>
-        <section>
           <h3>Analogy with relational databases</h3>
         </section>
         <section>
@@ -137,6 +113,30 @@
                 "tags": { "type": "keyword" }
               }
             }
+          </code></pre>
+        </section>
+        <section>
+          <h3>CRUD</h3>
+        </section>
+        <section>
+          <pre><code data-trim>
+            curl -XPUT 'localhost:9200/talks/talk/1' -H 'Content-Type: application/json' -d'
+            {
+              "title" : "Practical Introduction to Elasticsearch",
+              "body": "Bla bla bla...",
+              "author": "Piotr Leniec"
+            }
+            '
+          </code></pre>
+        </section>
+        <section>
+          <pre><code data-trim>
+            curl -XGET 'localhost:9200/talks/talk/1'
+          </code></pre>
+        </section>
+        <section>
+          <pre><code data-trim>
+            curl -XDELETE 'localhost:9200/talks/talk/1'
           </code></pre>
         </section>
         <section>
