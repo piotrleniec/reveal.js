@@ -124,24 +124,21 @@
 
           <aside class="notes">
             <ul>
-              <li>I know that comparing nosql and sql is a bad thing</li>
-              <li>Elasticsearch is no sql</li>
-              <li>STI representing multiple types with one database table</li>
-              <li>STI might help to understand indexes and types</li>
+              <li>Elasticsearch != SQL</li>
+              <li>The official documentation doesn't like that comparison</li>
             </ul>
           </aside>
         </section>
 
         <section>
-          <h3>Index &lt;=&gt; STI Table </h3>
+          <h3>Elasticsearch Index = SQL Database</h3>
+          Not really...
 
           <aside class="notes">
             <ul>
-              <li>Why not a database?</li>
-              <li>We want to make queries on the index level (many types)</li>
+              <li>It's a database which allows selects on multiple tables</li>
               <li>Fields across types in an index must have the same type</li>
-              <li>There are cases when this comparison doesn't make sense but let's skip it for now</li>
-              <li>Mention logs index</li>
+              <li>It's not a good comparison, but this will do for now...</li>
           </aside>
         </section>
 
@@ -149,7 +146,7 @@
           <pre><code data-trim class="bash">
             curl -XPUT 'localhost:9200/content' -H 'Content-Type: application/json' -d'
             {
-              "mappings" : {
+              "mappings": {
                 "article": {
                   "title": { "type": "text" },
                   "content": { "type": "text" },
@@ -180,7 +177,8 @@
         </section>
 
         <section>
-          <h3>Type &lt;=&gt; STI Type</h3>
+          <h3>Elasticsearch Type = SQL Table</h3>
+          Not really...
 
           <aside class="notes">
             <ul>
@@ -191,27 +189,20 @@
         </section>
 
         <section>
-          <pre><code data-trim>
-            "news": {
+          <pre><code data-trim class="bash">
+            curl -XPUT 'localhost:9200/content/_mapping/user' -H 'Content-Type: application/json' -d'
+            {
               "properties": {
-                "title": { "type": "text" },
-                "body": { "type": "text" },
-                "created_at": {
-                  "type": "date",
-                  "format": "yyyy-MM-dd"
-                }
-                "number_of_comments": { "type": "integer" },
-                "tags": { "type": "keyword" }
+                "name": { "type": "keyword" }
+                "content": { "type": "text" }
               }
             }
+            '
           </code></pre>
 
           <aside class="notes">
             <ul>
-              <li>Show different types</li>
-              <li>created_at format</li>
-              <li>There are more options like analyzers but let's keep it simple</li>
-              <li>Say that we have finished the first step</li>
+              <li>Types can be defined in index definition or added later</li>
             </ul>
           </aside>
         </section>
@@ -228,7 +219,7 @@
         </section>
 
         <section>
-          <pre><code data-trim>
+          <pre><code data-trim class="bash">
             curl -XPUT 'localhost:9200/talks/talk/1' -H 'Content-Type: application/json' -d'
             {
               "title" : "Practical Introduction to Elasticsearch",
@@ -248,7 +239,7 @@
         </section>
 
         <section>
-          <pre><code data-trim>
+          <pre><code data-trim class="bash">
             curl -XGET 'localhost:9200/talks/talk/1'
           </code></pre>
 
@@ -260,7 +251,7 @@
         </section>
 
         <section>
-          <pre><code data-trim>
+          <pre><code data-trim class="bash">
             curl -XDELETE 'localhost:9200/talks/talk/1'
           </code></pre>
         </section>
