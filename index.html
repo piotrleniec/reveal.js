@@ -408,10 +408,24 @@
             }
             '
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>It's important to notice that we provide an array of char filters and token filters</li>
+              <li>It's because char filter is String -> String and token filter is Token -> Token</li>
+              <li>We can select only one tokenizer because a tokenizer is String -> Token</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
           <h3>Query DSL</h3>
+
+          <aside class="notes">
+            <ul>
+              <li>Query DSL is very complex so now I'm going to show only basic example</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -433,6 +447,15 @@
             }
             '
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>Bool query is a combination of queries where we can use AND and OR operators to compose them</li>
+              <li>match analyzes field</li>
+              <li>term matches tokens</li>
+              <li>range makes comparisons like greater than or less than or equal</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -444,6 +467,13 @@
               { "match": { "content": "Elasticsearch" }}
             ],
           </code></pre>
+
+          <aside class="notes">
+            <ul>
+              <li>Query context calculates score</li>
+              <li>Score is a measure how a document fits the query</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -466,6 +496,7 @@
           <ul>
             <li>2,101 stars on GitHub</li>
             <li>Maintained by Elastic</li>
+            <li>Covers whole elasticsearch API</li>
           </ul>
         </section>
 
