@@ -427,19 +427,23 @@
         </section>
 
         <section>
-          <pre><code data-trim class="bash">
-            curl -XGET 'localhost:9200/articles/_search?' -H 'Content-Type: application/json' -d'
+          <pre><code data-trim data-noescape class="bash">
+            curl -XGET 'localhost:9200/<mark>talks</mark>/_search' -H 'Content-Type: application/json' -d'
             {
               "query": {
-                "bool": {
-                  "must": [
-                    { "match": { "title": "Search" }},
-                    { "match": { "content": "Elasticsearch" }}
-                  ],
-                  "filter": [
-                    { "term":  { "status": "published" }},
-                    { "range": { "publish_date": { "gte": "2015-01-01" }}}
-                  ]
+                "match" : {
+                  "body" : "this is a test"
+                }
+              }
+            }
+            '
+          </code></pre>
+          <pre><code data-trim data-noescape class="bash">
+            curl -XGET 'localhost:9200/<mark>talks/talk</mark>/_search' -H 'Content-Type: application/json' -d'
+            {
+              "query": {
+                "match" : {
+                  "body" : "this is a test"
                 }
               }
             }
@@ -448,41 +452,43 @@
 
           <aside class="notes">
             <ul>
-              <li>Bool query is a combination of queries where we can use AND and OR operators to compose them</li>
-              <li>match analyzes field</li>
-              <li>term matches tokens</li>
-              <li>range makes comparisons like greater than or less than or equal</li>
+              <li>We can query index or type</li>
+              <li>It's also possible to query the whole cluster but it's not optimal</li>
+              <li>match query analyzes the provided string and looks up inverted index</li>
             </ul>
           </aside>
         </section>
 
         <section>
-          <h3>Query context</h3>
-          How well does this document match this query clause?
-          <pre><code data-trim>
-            "must": [
-              { "match": { "title": "Search" }},
-              { "match": { "content": "Elasticsearch" }}
-            ],
+          <pre><code data-trim class="bash">
+            curl -XGET 'localhost:9200/talks/talk/_search' -H 'Content-Type: application/json' -d'
+            {
+              "query": {
+                "term" : {
+                  "body" : "this is a test"
+                }
+              }
+            }
+            '
           </code></pre>
 
           <aside class="notes">
             <ul>
-              <li>Query context calculates score</li>
-              <li>Score is a measure how a document fits the query</li>
+              <li>term query treats provided string as a token</li>
             </ul>
           </aside>
         </section>
 
         <section>
-          <h3>Filter context</h3>
-          Does this document match this query clause?
-          <pre><code data-trim>
-            "filter": [
-              { "term": { "status": "published" }},
-              { "range": { "publish_date": { "gte": "2015-01-01" }}}
-            ]
-          </code></pre>
+          <h3>Score, filters and other funny things</h3>
+
+          <aside class="notes">
+            <ul>
+              <li>Score - measure of how well document matches a query</li>
+              <li>Filters are like queries but doesnt apply to score</li>
+              <li>There're a lot more options like fuzzy, compound and geo queries</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
